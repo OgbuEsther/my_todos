@@ -1,6 +1,7 @@
 //import 
 const express = require("express")
 const mongoose = require("mongoose")
+const cors = require("cors")
 const todoRoutes = require("./routes/todoRoutes")
 const userRoutes = require("./routes/userRoutes")
 
@@ -16,6 +17,7 @@ mongoose.connect(live_uri).then(()=>{
 const app = express()
 
 app.use(express.json())
+app.use(cors())
 app.use("/todo" , todoRoutes)
 app.use("/user" , userRoutes)
 
